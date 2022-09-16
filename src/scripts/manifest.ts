@@ -8,7 +8,7 @@ const newManifest = (config: Config): Manifest => {
   const manifest: Manifest = {
     name,
     description,
-    icons,
+    icons: [icons.app],
   };
 
   return manifest;

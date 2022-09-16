@@ -1,7 +1,10 @@
 export interface Config {
   name: string;
   description: string;
-  icons: Icon[];
+  icons: {
+    web: Icon;
+    app: Icon;
+  };
 }
 
 interface Icon {

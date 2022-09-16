@@ -1,3 +1,4 @@
+import { getConfig } from "../utils";
 import { generateManifest } from "./manifest";
 
 export const appStart = async () => {

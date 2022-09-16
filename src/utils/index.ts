@@ -1,16 +1,17 @@
 import path from "path";
-import * as tsImport from "ts-import";
+import jiti from "jiti";
 
 export const getConfig = async () => {
   const configPath = path.resolve(process.cwd(), "manifest-config.ts");
 
   console.log("configPath: ", configPath);
 
-  const config = await tsImport.load(configPath).catch((err) => {
-    console.error(err);
+  const config = jiti(process.cwd(), {
+    interopDefault: true,
+    esmResolve: true,
   });
 
-  return config.default;
+  return config("./manifest-config.ts");
 };
 
 export const parseJson = (json: string): string =>

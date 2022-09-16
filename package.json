@@ -16,7 +16,7 @@
   "author": "Júlio Mühlbauer",
   "license": "MIT",
   "dependencies": {
-    "ts-import": "^4.0.0-beta.6",
+    "jiti": "^1.15.0",
     "typescript": "^4.8.3",
     "unbuild": "^0.8.11"
   },
