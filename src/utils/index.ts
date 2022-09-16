@@ -1,7 +1,8 @@
 import path from "path";
 import jiti from "jiti";
+import { Config } from "types";
 
-export const getConfig = async () => {
+export const getConfig = (): Config => {
   const configPath = path.resolve(process.cwd(), "manifest-config.ts");
 
   console.log("configPath: ", configPath);

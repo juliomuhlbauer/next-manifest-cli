@@ -35,31 +35,32 @@ const writeManifest = (config: Config) => {
 };
 
 export const generateManifest = async () => {
-  const existedManifest = fs.readFileSync("public/manifest.json", {
-    encoding: "utf-8",
+  const config = getConfig();
+
+  fs.readFile("public/manifest.json", "utf8", (err, data) => {
+    if (err) {
+      console.log("manifest.json does not exist");
+
+      writeManifest(config);
+      return;
+    }
+
+    console.log("manifest.json exists");
+
+    const parsedExistedManifestJson = parseJson(data);
+
+    const newParsedManifest = JSON.stringify(newManifest(config));
+
+    if (parsedExistedManifestJson !== newParsedManifest) {
+      console.log("app was updated");
+
+      return writeManifest(config);
+    }
+
+    if (parsedExistedManifestJson === newParsedManifest) {
+      console.log("app is up to date");
+
+      return parsedExistedManifestJson;
+    }
   });
-
-  const config = await getConfig();
-
-  if (!existedManifest) {
-    console.log("manifest.json does not exist");
-
-    return writeManifest(config);
-  }
-
-  const parsedExistedManifestJson = parseJson(existedManifest);
-
-  const newParsedManifest = JSON.stringify(newManifest(config));
-
-  if (parsedExistedManifestJson !== newParsedManifest) {
-    console.log("app was updated");
-
-    return writeManifest(config);
-  }
-
-  if (parsedExistedManifestJson === newParsedManifest) {
-    console.log("app is up to date");
-
-    return parsedExistedManifestJson;
-  }
 };
