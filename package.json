@@ -3,6 +3,7 @@
   "version": "0.0.2-alpha",
   "description": "Generate manifest json based on an config file",
   "main": "dist/index.js",
+  "repository": "https://github.com/juliomuhlbauer/next-manifest-cli",
   "scripts": {
     "build": "unbuild"
   },
