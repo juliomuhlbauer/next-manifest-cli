@@ -1,0 +1,24 @@
+{
+  "name": "next-manifest-cli",
+  "version": "0.0.1-alpha",
+  "description": "Generate manifest json based on an config file",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "bin": {
+    "cli": "bin/index.js"
+  },
+  "keywords": [
+    "manifest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "ts-import": "^4.0.0-beta.6",
+    "typescript": "^4.8.3",
+    "unbuild": "^0.8.11"
+  },
+  "dependencies": {}
+}
