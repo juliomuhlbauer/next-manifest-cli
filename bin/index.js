@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
-const { run } = require("../dist/index.js");
+const jiti = require("jiti");
 
-run();
+const { appStart } = jiti(process.cwd(), {
+  interopDefault: true,
+  esmResolve: true,
+})("./src/scripts/app-start.ts");
+
+appStart();
