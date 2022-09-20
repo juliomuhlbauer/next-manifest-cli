@@ -1,12 +1,9 @@
 {
   "name": "next-manifest-cli",
-  "version": "0.0.6-alpha",
+  "version": "0.0.13-experiment",
   "description": "Generate manifest json based on an config file",
   "main": "dist/index.js",
   "repository": "https://github.com/juliomuhlbauer/next-manifest-cli",
-  "scripts": {
-    "build": "unbuild"
-  },
   "bin": {
     "manifest": "bin/index.js"
   },
@@ -17,10 +14,10 @@
   "license": "MIT",
   "dependencies": {
     "jiti": "^1.15.0",
-    "typescript": "^4.8.3",
-    "unbuild": "^0.8.11"
+    "dotenv": "^16.0.2"
   },
   "devDependencies": {
+    "typescript": "^4.8.3",
     "@types/node": "^18.7.18"
   }
 }

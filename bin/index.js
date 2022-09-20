@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 
-const jiti = require("jiti");
+const jiti = require("jiti")();
 
-const { appStart } = jiti(process.cwd(), {
-  interopDefault: true,
-  esmResolve: true,
-})("./src/scripts/app-start.ts");
+const package = require("../package.json");
 
-appStart();
+require("dotenv").config();
+
+const filePath = process.env.ISDEV
+  ? "./src/index.ts"
+  : `./node_modules/${package.name}/src/index.ts`;
+
+const { run } = jiti(filePath);
+
+run();

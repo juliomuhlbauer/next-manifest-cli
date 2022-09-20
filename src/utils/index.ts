@@ -12,7 +12,11 @@ export const getConfig = (): Config => {
     esmResolve: true,
   });
 
-  return config("./manifest-config.ts");
+  const filePath = process.argv[2]
+    ? `./${process.argv[2].slice(2)}`
+    : "./manifest-config.ts";
+
+  return config(filePath);
 };
 
 export const parseJson = (json: string): string =>
